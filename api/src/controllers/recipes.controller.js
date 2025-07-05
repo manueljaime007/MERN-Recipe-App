@@ -38,6 +38,7 @@ export const indexByCategory = async (request, response) => {
         response.status(500).json({
             message: "Server Errror!"
         })
+        console.error(error)
     }
 }
 export const showById = async (request, response) => {

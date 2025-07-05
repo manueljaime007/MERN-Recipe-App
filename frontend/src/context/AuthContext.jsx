@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
         if (token) {
             axios.defaults.headers.common["Authorization"] = `Bearer ${token}`
 
-            axios.get('/api/auth/profile')
+            axios.get('/api/v1/auth/profile')
                 .then((response) => {
                     setUser(response.data)
                 })
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
     }, [])
 
     const login = async (email, password) => {
-        const response = await axios.post('/api/auth/login', {
+        const response = await axios.post('/api/v1/auth/login', {
             email, password
         })
         localStorage.setItem("token", response.data.token)
@@ -29,7 +29,7 @@ export const AuthProvider = ({ children }) => {
         setUser(response.data)
     }
     const register = async (username, email, password) => {
-        const response = await axios.post('/api/auth/register', {
+        const response = await axios.post('/api/v1/auth/register', {
             username, email, password
         })
         localStorage.setItem("token", response.data.token)

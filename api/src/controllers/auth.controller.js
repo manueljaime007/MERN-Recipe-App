@@ -43,7 +43,6 @@ export const register = async (request, response) => {
         response.status(500).json({
             message: `Server error: ${error}`
         })
-        console.error(error)
     }
 
 }
